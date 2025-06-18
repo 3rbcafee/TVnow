@@ -1,76 +1,95 @@
-(async function () {
-    const allowedDomains = ['laky-saydatii.blogspot.com', 'qanwatlive.com']; // ✏️ دوميناتك فقط
-    const currentURL = window.location.href;
-    const referrerURL = document.referrer;
+async function fetchTVGuideData() {
+    const apiUrl = 'https://api.allorigins.win/raw?url=https://elcinema.com/tvguide/';
+    const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error('Failed to fetch TV guide');
+    return await response.text();
+}
 
-    const isAllowed = allowedDomains.some(domain =>
-        currentURL.includes(domain) || referrerURL.includes(domain)
-    );
+function extractShowInfo(slot) {
+    const listItems = slot.querySelectorAll('ul li');
+    if (listItems.length < 1) return null;
 
-    if (!isAllowed) {
-        document.write(JSON.stringify({ error: 'غير مصرح لك باستخدام هذا المصدر' }));
-        return;
+    let showName = '';
+    const nameElement = listItems[0].querySelector('a');
+    if (nameElement) {
+        showName = nameElement.textContent.trim();
+    } else {
+        showName = listItems[0].textContent.trim();
     }
 
-    async function fetchTVGuideData() {
-        const apiUrl = 'https://api.allorigins.win/raw?url=https://elcinema.com/tvguide/';
-        const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error('Failed to fetch TV guide');
-        return await response.text();
-    }
+    return { name: showName };
+}
 
-    function extractShowInfo(slot) {
-        const listItems = slot.querySelectorAll('ul li');
-        if (listItems.length < 1) return null;
-        const nameElement = listItems[0].querySelector('a');
-        return { name: nameElement ? nameElement.textContent.trim() : listItems[0].textContent.trim() };
-    }
+function parseTVShows(htmlContent) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+    const tvLines = doc.querySelectorAll('.tv-line');
+    const shows = [];
 
-    function parseTVShows(htmlContent) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlContent, 'text/html');
-        const tvLines = doc.querySelectorAll('.tv-line');
-        const shows = [];
+    tvLines.forEach(tvLine => {
+        try {
+            const channelDiv = tvLine.querySelector('.channel .columns.small-12.large-6:not(.hide)');
+            let channelName = '';
+            let channelLogo = '';
 
-        tvLines.forEach(tvLine => {
-            try {
-                const channelDiv = tvLine.querySelector('.channel .columns.small-12.large-6:not(.hide)');
-                if (!channelDiv) return;
-
+            if (channelDiv) {
                 const channelLink = channelDiv.querySelector('a[title]');
-                if (!channelLink) return;
-
-                const channelName = channelLink.getAttribute('title');
-                const logoImg = channelLink.querySelector('img');
-                const channelLogo = logoImg ? logoImg.getAttribute('data-src') || logoImg.src : '';
-
-                const slots = tvLine.querySelectorAll('.tv-slot');
-                if (slots.length === 0) return;
-
-                const showInfo = extractShowInfo(slots[0]);
-                if (showInfo) {
-                    shows.push({
-                        channelName,
-                        channelLogo,
-                        showName: showInfo.name
-                    });
+                if (channelLink) {
+                    channelName = channelLink.getAttribute('title');
+                    const logoImg = channelLink.querySelector('img');
+                    if (logoImg) {
+                        channelLogo = logoImg.outerHTML;
+                    }
                 }
-            } catch (error) {}
-        });
+            }
 
-        const result = {
-            timestamp: new Date().toISOString(),
-            totalChannels: shows.length,
-            shows
-        };
+            const slots = tvLine.querySelectorAll('.tv-slot');
+            if (slots.length === 0) return;
 
-        document.write(JSON.stringify(result));
+            const currentSlot = slots[0];
+            const showInfo = extractShowInfo(currentSlot);
+
+            if (showInfo) {
+                shows.push({
+                    channelName: channelName,
+                    channelLogo: channelLogo,
+                    showName: showInfo.name
+                });
+            }
+        } catch (error) {
+            console.error('Error parsing TV line:', error);
+        }
+    });
+
+    return shows;
+}
+
+function displayJSON(shows) {
+    if (shows.length === 0) {
+        return JSON.stringify({ error: 'No shows found' }, null, 2);
     }
 
+    const data = {
+        timestamp: new Date().toISOString(),
+        totalChannels: shows.length,
+        shows: shows
+    };
+
+    return JSON.stringify(data, null, 2);
+}
+
+// Main function to expose
+async function getTVGuideJSON() {
     try {
         const htmlContent = await fetchTVGuideData();
-        parseTVShows(htmlContent);
-    } catch (err) {
-        document.write(JSON.stringify({ error: err.message }));
+        const shows = parseTVShows(htmlContent);
+        return displayJSON(shows);
+    } catch (error) {
+        return JSON.stringify({ error: error.message }, null, 2);
     }
-})();
+}
+
+// Optional: expose globally if loaded via <script>
+if (typeof window !== 'undefined') {
+    window.getTVGuideJSON = getTVGuideJSON;
+}
