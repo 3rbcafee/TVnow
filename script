@@ -1,20 +1,5 @@
-(function () {
-    const allowedDomains = ['qanwatlive.com', 'laky-saydatii.blogspot.com'];
-
-    const currentURL = window.location.href;
-    const referrerURL = document.referrer;
-
-    const isAllowed = allowedDomains.some(domain =>
-        currentURL.includes(domain) || referrerURL.includes(domain)
-    );
-
-    if (!isAllowed) {
-        console.error('❌غير مصرح لك باستخدام هذا المصدر');
-        return; 
-    }
-
-    // ✅ السكربت يبدأ بعد التحقق من الصلاحية
-    // هنا تكتب الكود بتاعك كله بعد السطر ده
+(async function () {
+    // لا يوجد حماية مؤقتاً
 
     async function fetchTVGuideData() {
         const apiUrl = 'https://api.allorigins.win/raw?url=https://elcinema.com/tvguide/';
@@ -84,6 +69,11 @@
 
     function displayJSON(shows) {
         const output = document.getElementById('output');
+        if (!output) {
+            console.warn('No element with id="output" found.');
+            return;
+        }
+
         if (shows.length === 0) {
             output.textContent = JSON.stringify({ error: 'No shows found' }, null, 2);
             return;
@@ -100,14 +90,16 @@
 
     async function main() {
         const output = document.getElementById('output');
-        output.textContent = 'Loading...';
+        if (output) output.textContent = 'Loading...';
 
         try {
             const htmlContent = await fetchTVGuideData();
             const shows = parseTVShows(htmlContent);
             displayJSON(shows);
         } catch (error) {
-            output.textContent = JSON.stringify({ error: error.message }, null, 2);
+            if (output) {
+                output.textContent = JSON.stringify({ error: error.message }, null, 2);
+            }
         }
     }
 
