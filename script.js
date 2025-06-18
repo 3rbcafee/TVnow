@@ -1,1 +1,76 @@
-function _0x1fff(_0x2faf01,_0x190bf9){const _0x37ede2=_0x37ed();return _0x1fff=function(_0x1fff09,_0x59301e){_0x1fff09=_0x1fff09-0xa1;let _0x2a3ded=_0x37ede2[_0x1fff09];return _0x2a3ded;},_0x1fff(_0x2faf01,_0x190bf9);}function _0x37ed(){const _0x2e81ae=['querySelectorAll','36XjOeWL','querySelector','36AkJGHT','stringify','.tv-slot','2942520KubKlc','غير\x20مصرح\x20لك\x20باستخدام\x20هذا\x20المصدر','includes','154328PbpfUk','23mYNOFX','text','some','.channel\x20.columns.small-12.large-6:not(.hide)','error','forEach','3154855zJHLuU','366147lwgEJi','location','qanwatlive.com','https://api.allorigins.win/raw?url=https://elcinema.com/tvguide/','laky-saydatii.blogspot.com','title','img','textContent','1036712UKvRTH','35abisRk','referrer','message','trim','name','41982wJJuEz','outerHTML','log','toISOString','ul\x20li','437646DFppTW','length','5HiUBKo','خطأ\x20في\x20تحليل\x20قناة:','getAttribute','body','a[title]'];_0x37ed=function(){return _0x2e81ae;};return _0x37ed();}(function(_0x7fbf09,_0x53c218){const _0x347c85=_0x1fff,_0x5264f2=_0x7fbf09();while(!![]){try{const _0x35d3e5=-parseInt(_0x347c85(0xc4))/0x1*(-parseInt(_0x347c85(0xae))/0x2)+parseInt(_0x347c85(0xbd))/0x3*(parseInt(_0x347c85(0xc3))/0x4)+parseInt(_0x347c85(0xb5))/0x5*(-parseInt(_0x347c85(0xb3))/0x6)+parseInt(_0x347c85(0xa9))/0x7*(parseInt(_0x347c85(0xa8))/0x8)+-parseInt(_0x347c85(0xcb))/0x9+-parseInt(_0x347c85(0xc0))/0xa+-parseInt(_0x347c85(0xca))/0xb*(parseInt(_0x347c85(0xbb))/0xc);if(_0x35d3e5===_0x53c218)break;else _0x5264f2['push'](_0x5264f2['shift']());}catch(_0x5eba0b){_0x5264f2['push'](_0x5264f2['shift']());}}}(_0x37ed,0x4f737),(function(){const _0x717502=_0x1fff,_0x4a8a53=[_0x717502(0xa4),_0x717502(0xa2)],_0x4e8e21=window[_0x717502(0xa1)]['href'],_0x2a3177=document[_0x717502(0xaa)],_0x4d9166=_0x4a8a53[_0x717502(0xc6)](_0x112800=>_0x4e8e21[_0x717502(0xc2)](_0x112800)||_0x2a3177['includes'](_0x112800));if(!_0x4d9166){console[_0x717502(0xc8)](_0x717502(0xc1)),document[_0x717502(0xb8)]['innerHTML']='<p\x20style=\x22color:red;text-align:center;margin-top:50px;font-size:20px;\x22>غير\x20مصرح\x20لك\x20باستخدام\x20هذا\x20السكربت</p>';return;}async function _0x31b4fb(){const _0x4b1272=_0x717502,_0x3cefd7=_0x4b1272(0xa3),_0xec4ce4=await fetch(_0x3cefd7);if(!_0xec4ce4['ok'])throw new Error('فشل\x20تحميل\x20الداتا');return await _0xec4ce4[_0x4b1272(0xc5)]();}function _0x49f035(_0x3d4cf6){const _0xfacc3a=_0x717502,_0x78351b=_0x3d4cf6['querySelectorAll'](_0xfacc3a(0xb2));if(_0x78351b['length']<0x1)return null;let _0x644bd2='';const _0x582e06=_0x78351b[0x0][_0xfacc3a(0xbc)]('a');return _0x582e06?_0x644bd2=_0x582e06[_0xfacc3a(0xa7)]['trim']():_0x644bd2=_0x78351b[0x0][_0xfacc3a(0xa7)][_0xfacc3a(0xac)](),{'name':_0x644bd2};}function _0x567f8f(_0x527358){const _0x2e2752=_0x717502,_0x232bfd=new DOMParser(),_0x68932a=_0x232bfd['parseFromString'](_0x527358,'text/html'),_0x50491a=_0x68932a['querySelectorAll']('.tv-line'),_0x143f0b=[];return _0x50491a[_0x2e2752(0xc9)](_0x429b00=>{const _0xfb623a=_0x2e2752;try{const _0x3f1cff=_0x429b00[_0xfb623a(0xbc)](_0xfb623a(0xc7));let _0x33ce8='',_0xb2f635='';if(_0x3f1cff){const _0x11c8a3=_0x3f1cff['querySelector'](_0xfb623a(0xb9));if(_0x11c8a3){_0x33ce8=_0x11c8a3[_0xfb623a(0xb7)](_0xfb623a(0xa5));const _0x94b42e=_0x11c8a3[_0xfb623a(0xbc)](_0xfb623a(0xa6));_0x94b42e&&(_0xb2f635=_0x94b42e[_0xfb623a(0xaf)]);}}const _0x2755c3=_0x429b00[_0xfb623a(0xba)](_0xfb623a(0xbf));if(_0x2755c3[_0xfb623a(0xb4)]===0x0)return;const _0x31103f=_0x2755c3[0x0],_0x54f3d8=_0x49f035(_0x31103f);_0x54f3d8&&_0x143f0b['push']({'channelName':_0x33ce8,'channelLogo':_0xb2f635,'showName':_0x54f3d8[_0xfb623a(0xad)]});}catch(_0x3eaabd){console[_0xfb623a(0xc8)](_0xfb623a(0xb6),_0x3eaabd);}}),_0x143f0b;}function _0x1e9a7f(_0x11cab1){const _0x6e0d4c=_0x717502,_0x3397b8={'timestamp':new Date()[_0x6e0d4c(0xb1)](),'totalChannels':_0x11cab1[_0x6e0d4c(0xb4)],'shows':_0x11cab1};console[_0x6e0d4c(0xb0)](JSON[_0x6e0d4c(0xbe)](_0x3397b8,null,0x2));}async function _0xf60bcb(){const _0x28c5b9=_0x717502;try{const _0x5f0e1f=await _0x31b4fb(),_0x3d8ae5=_0x567f8f(_0x5f0e1f);_0x1e9a7f(_0x3d8ae5);}catch(_0x4f3756){console[_0x28c5b9(0xc8)]('❌',_0x4f3756[_0x28c5b9(0xab)]);}}_0xf60bcb();}()));
+(async function () {
+    const allowedDomains = ['laky-saydatii.blogspot.com', 'qanwatlive.com']; // ✏️ دوميناتك فقط
+    const currentURL = window.location.href;
+    const referrerURL = document.referrer;
+
+    const isAllowed = allowedDomains.some(domain =>
+        currentURL.includes(domain) || referrerURL.includes(domain)
+    );
+
+    if (!isAllowed) {
+        document.write(JSON.stringify({ error: 'غير مصرح لك باستخدام هذا المصدر' }));
+        return;
+    }
+
+    async function fetchTVGuideData() {
+        const apiUrl = 'https://api.allorigins.win/raw?url=https://elcinema.com/tvguide/';
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Failed to fetch TV guide');
+        return await response.text();
+    }
+
+    function extractShowInfo(slot) {
+        const listItems = slot.querySelectorAll('ul li');
+        if (listItems.length < 1) return null;
+        const nameElement = listItems[0].querySelector('a');
+        return { name: nameElement ? nameElement.textContent.trim() : listItems[0].textContent.trim() };
+    }
+
+    function parseTVShows(htmlContent) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlContent, 'text/html');
+        const tvLines = doc.querySelectorAll('.tv-line');
+        const shows = [];
+
+        tvLines.forEach(tvLine => {
+            try {
+                const channelDiv = tvLine.querySelector('.channel .columns.small-12.large-6:not(.hide)');
+                if (!channelDiv) return;
+
+                const channelLink = channelDiv.querySelector('a[title]');
+                if (!channelLink) return;
+
+                const channelName = channelLink.getAttribute('title');
+                const logoImg = channelLink.querySelector('img');
+                const channelLogo = logoImg ? logoImg.getAttribute('data-src') || logoImg.src : '';
+
+                const slots = tvLine.querySelectorAll('.tv-slot');
+                if (slots.length === 0) return;
+
+                const showInfo = extractShowInfo(slots[0]);
+                if (showInfo) {
+                    shows.push({
+                        channelName,
+                        channelLogo,
+                        showName: showInfo.name
+                    });
+                }
+            } catch (error) {}
+        });
+
+        const result = {
+            timestamp: new Date().toISOString(),
+            totalChannels: shows.length,
+            shows
+        };
+
+        document.write(JSON.stringify(result));
+    }
+
+    try {
+        const htmlContent = await fetchTVGuideData();
+        parseTVShows(htmlContent);
+    } catch (err) {
+        document.write(JSON.stringify({ error: err.message }));
+    }
+})();
